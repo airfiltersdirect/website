@@ -83,10 +83,10 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-slate-500" style={{ fontFamily: 'DM Sans, sans-serif' }}>
-            © 2025 AirFiltersDirect. All rights reserved. Canadian-owned &amp; operated.
+            © 2026 AirFiltersDirect. All rights reserved. Canadian-owned &amp; operated.
           </p>
           <div className="flex items-center gap-4">
-            {['Privacy Policy', 'Terms of Service', 'Shipping Policy'].map(link => (
+            {['Privacy Policy', 'Terms of Service'].map(link => (
               <button
                 key={link}
                 className="text-xs text-slate-500 hover:text-sky-400 transition-colors"
