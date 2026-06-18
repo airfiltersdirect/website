@@ -95,7 +95,7 @@ function buildOwnerEmailHtml(data: OrderEmailPayload): string {
       <div style="margin-top:24px;padding:16px;background:#eff6ff;border-left:4px solid #3b82f6;border-radius:4px;">
         <p style="margin:0 0 8px;font-weight:700;color:#1d4ed8;font-size:14px;">⚡ E-Transfer Required</p>
         <p style="margin:0 0 4px;color:#1e40af;font-size:14px;">
-          Send <strong>$${data.total.toFixed(2)} CAD</strong> to <strong>info@loitteb.ca</strong>
+          Send <strong>$${data.total.toFixed(2)} CAD</strong> to <strong>payments@airfiltersdirect.ca</strong>
         </p>
         <p style="margin:0;color:#1e40af;font-size:14px;">
           Memo / message field: <strong style="font-family:monospace;letter-spacing:0.1em;">${data.orderId}</strong>
@@ -181,7 +181,7 @@ function buildCustomerEmailHtml(data: OrderEmailPayload): string {
       <div style="margin-top:24px;padding:20px;background:#eff6ff;border-left:4px solid #3b82f6;border-radius:8px;">
         <p style="margin:0 0 10px;font-weight:700;color:#1d4ed8;font-size:15px;">⚡ E-Transfer Payment Instructions</p>
         <p style="margin:0 0 6px;color:#1e40af;font-size:14px;">
-          Please send <strong>$${data.total.toFixed(2)} CAD</strong> to <strong>info@loitteb.ca</strong>
+          Please send <strong>$${data.total.toFixed(2)} CAD</strong> to <strong>payments@airfiltersdirect.ca</strong>
         </p>
         <p style="margin:0 0 6px;color:#1e40af;font-size:14px;">
           In the memo / message field, enter your order reference:
@@ -298,8 +298,8 @@ export async function sendOrderEmail(data: OrderEmailPayload): Promise<void> {
 
   // Send owner notification
   await transporter.sendMail({
-    from: `"AirFiltersDirect Orders" <orders@airfiltersdirect.ca>`,
-    to: 'info@loitteb.ca',
+    from: `"AirFiltersDirect" <order@airfiltersdirect.ca>`,
+    to: 'orders@airfiltersdirect.ca',
     replyTo: data.email,
     subject: `${firstName} has ordered ${productNames}`,
     html: buildOwnerEmailHtml(data),
@@ -308,7 +308,7 @@ export async function sendOrderEmail(data: OrderEmailPayload): Promise<void> {
   // Send customer confirmation (non-fatal if it fails)
   try {
     await transporter.sendMail({
-      from: `"AirFiltersDirect" <orders@airfiltersdirect.ca>`,
+      from: `"AirFiltersDirect" <order@airfiltersdirect.ca>`,
       to: data.email,
       subject: `Your AirFiltersDirect Order Confirmation — ${data.orderId}`,
       html: buildCustomerEmailHtml(data),
