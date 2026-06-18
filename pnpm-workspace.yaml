@@ -1,3 +1,5 @@
+confirmModulesPurge: false
+
 allowBuilds:
   esbuild: true
 

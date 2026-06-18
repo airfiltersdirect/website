@@ -293,7 +293,7 @@ export async function sendOrderEmail(data: OrderEmailPayload): Promise<void> {
 
   // Send owner notification
   await transporter.sendMail({
-    from: `"AirFiltersDirect Orders" <order@directairfilter.loitteb.ca>`,
+    from: `"AirFiltersDirect Orders" <orders@airfiltersdirect.ca>`,
     to: 'info@loitteb.ca',
     replyTo: data.email,
     subject: `${firstName} has ordered ${productNames}`,
@@ -303,7 +303,7 @@ export async function sendOrderEmail(data: OrderEmailPayload): Promise<void> {
   // Send customer confirmation (non-fatal if it fails)
   try {
     await transporter.sendMail({
-      from: `"AirFiltersDirect" <order@directairfilter.loitteb.ca>`,
+      from: `"AirFiltersDirect" <orders@airfiltersdirect.ca>`,
       to: data.email,
       subject: `Your AirFiltersDirect Order Confirmation — ${data.orderId}`,
       html: buildCustomerEmailHtml(data),
