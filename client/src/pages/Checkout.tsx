@@ -426,8 +426,8 @@ function ConfirmStep({
             Send <span className="font-extrabold text-sky-900">${total.toFixed(2)}</span> to:
           </p>
           <div className="mt-3 px-4 py-3 rounded-xl bg-white border border-sky-200 flex items-center justify-between">
-            <span className="font-bold text-sky-800 text-base" style={{ fontFamily: 'Sora, sans-serif' }}>info@loitteb.ca</span>
-            <button onClick={() => { navigator.clipboard?.writeText('info@loitteb.ca'); }} className="text-xs text-sky-600 font-medium hover:text-sky-800 transition-colors px-2 py-1 rounded-lg hover:bg-sky-50" style={{ fontFamily: 'DM Sans, sans-serif' }}>Copy</button>
+            <span className="font-bold text-sky-800 text-base" style={{ fontFamily: 'Sora, sans-serif' }}>payments@airfiltersdirect.ca</span>
+            <button onClick={() => { navigator.clipboard?.writeText('payments@airfiltersdirect.ca'); }} className="text-xs text-sky-600 font-medium hover:text-sky-800 transition-colors px-2 py-1 rounded-lg hover:bg-sky-50" style={{ fontFamily: 'DM Sans, sans-serif' }}>Copy</button>
           </div>
           <div className="mt-3 p-3 rounded-xl bg-amber-50 border border-amber-200">
             <p className="text-xs font-semibold text-amber-700 mb-1" style={{ fontFamily: 'DM Sans, sans-serif' }}>Required memo / message field:</p>
@@ -499,7 +499,7 @@ function SuccessStep({
         </head>
         <body>
           ${printContent.innerHTML}
-          <p class="note">AirFiltersDirect · info@loitteb.ca · Printed ${new Date().toLocaleDateString('en-CA')}</p>
+          <p class="note">AirFiltersDirect · payments@airfiltersdirect.ca · Printed ${new Date().toLocaleDateString('en-CA')}</p>
         </body>
       </html>
     `);
@@ -550,7 +550,7 @@ function SuccessStep({
             <p className="text-xs font-bold text-sky-700 uppercase tracking-wide" style={{ fontFamily: 'DM Sans, sans-serif' }}>Don't forget your e-transfer</p>
           </div>
           <p className="text-sm text-sky-700" style={{ fontFamily: 'DM Sans, sans-serif' }}>
-            Send <span className="font-extrabold text-sky-900">${total.toFixed(2)}</span> to <span className="font-bold text-sky-800">info@loitteb.ca</span>
+            Send <span className="font-extrabold text-sky-900">${total.toFixed(2)}</span> to <span className="font-bold text-sky-800">payments@airfiltersdirect.ca</span>
           </p>
           <div className="mt-2 p-2 rounded-lg bg-amber-50 border border-amber-200">
             <p className="text-xs text-amber-700" style={{ fontFamily: 'DM Sans, sans-serif' }}>
@@ -621,7 +621,7 @@ function SuccessStep({
         </table>
         {payment === 'etransfer' && (
           <div className="etransfer">
-            <strong>E-Transfer Instructions:</strong> Send ${total.toFixed(2)} to info@loitteb.ca<br />
+            <strong>E-Transfer Instructions:</strong> Send ${total.toFixed(2)} to payments@airfiltersdirect.ca<br />
             Memo / message field: <strong>{orderId}</strong>
           </div>
         )}
