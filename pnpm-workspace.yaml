@@ -1,0 +1,8 @@
+allowBuilds:
+  esbuild: true
+
+minimumReleaseAgeExclude:
+  - nodemailer@9.0.1
+
+overrides:
+  tailwindcss>nanoid: "3.3.7"
