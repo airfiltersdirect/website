@@ -32,7 +32,7 @@ export default function PrivacyPolicy() {
             Privacy Policy
           </h1>
           <p className="text-slate-400 mt-2 text-sm" style={{ fontFamily: 'DM Sans, sans-serif' }}>
-            Last updated: June 2025
+            Last updated: June 2026
           </p>
         </div>
       </div>
