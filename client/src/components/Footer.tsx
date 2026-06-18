@@ -2,7 +2,8 @@
 // Design: Glassmorphism footer, sky-blue palette
 // Layout: brand info spread horizontally, no SHOP/INFO link columns
 
-import { Wind, Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
+import { Link } from 'wouter';
 
 export default function Footer() {
   return (
@@ -73,18 +74,19 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-slate-500" style={{ fontFamily: 'DM Sans, sans-serif' }}>
-            © 2025 AirFiltersDirect. All rights reserved. Canadian-owned &amp; operated.
+            © 2026 AirFiltersDirect. All rights reserved. Canadian-owned &amp; operated.
           </p>
           <div className="flex items-center gap-4">
-            {['Privacy Policy', 'Terms of Service', 'Shipping Policy'].map(link => (
-              <button
-                key={link}
-                className="text-xs text-slate-500 hover:text-sky-400 transition-colors"
-                style={{ fontFamily: 'DM Sans, sans-serif' }}
-              >
-                {link}
-              </button>
-            ))}
+            <Link href="/privacy-policy">
+              <a className="text-xs text-slate-500 hover:text-sky-400 transition-colors" style={{ fontFamily: 'DM Sans, sans-serif' }}>
+                Privacy Policy
+              </a>
+            </Link>
+            <Link href="/terms-of-service">
+              <a className="text-xs text-slate-500 hover:text-sky-400 transition-colors" style={{ fontFamily: 'DM Sans, sans-serif' }}>
+                Terms of Service
+              </a>
+            </Link>
           </div>
         </div>
       </div>

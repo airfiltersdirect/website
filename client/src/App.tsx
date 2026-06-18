@@ -1,6 +1,6 @@
 // AirFiltersDirect — App Root
 // Design: Clean Air Glassmorphism | Light theme | Sora + DM Sans
-// Routes: / (home) | /cart | /checkout
+// Routes: / (home) | /cart | /checkout | /privacy-policy | /terms-of-service
 
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -12,6 +12,8 @@ import { CartProvider } from "./contexts/CartContext";
 import Home from "./pages/Home";
 import CartPage from "./pages/Cart";
 import CheckoutPage from "./pages/Checkout";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
 function Router() {
   // make sure to consider if you need authentication for certain routes
   return (
@@ -19,6 +21,8 @@ function Router() {
       <Route path={"/"} component={Home} />
       <Route path={"/cart"} component={CartPage} />
       <Route path={"/checkout"} component={CheckoutPage} />
+      <Route path={"/privacy-policy"} component={PrivacyPolicy} />
+      <Route path={"/terms-of-service"} component={TermsOfService} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>
