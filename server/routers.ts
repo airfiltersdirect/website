@@ -25,6 +25,7 @@ const sendOrderEmailInput = z.object({
   items: z.array(orderItemSchema),
   subtotal: z.number(),
   hst: z.number(),
+  delivery: z.number(),
   total: z.number(),
 });
 

@@ -39,33 +39,15 @@ export default function Navbar({ onCartOpen, onShopClick }: NavbarProps) {
           {/* Logo */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="flex items-center gap-2.5 group"
+            className="flex items-center group"
           >
-            <div className="w-9 h-9 rounded-xl overflow-hidden flex items-center justify-center bg-white/80 shadow-sm border border-white/60">
-              <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663421227709/nTdPSsPiYf7V5UxctJCgYg/logo-icon-VkFxunwtpnvsr5EpVnQV6E.webp"
-                alt="AirFiltersDirect logo"
-                className="w-7 h-7 object-contain"
-              />
-            </div>
-            <div className="flex flex-col leading-none">
-              <span
-                className={`font-display font-700 text-[15px] tracking-tight transition-colors ${
-                  scrolled ? 'text-slate-800' : 'text-white'
-                }`}
-                style={{ fontFamily: 'Sora, sans-serif', fontWeight: 700 }}
-              >
-                AirFilters
-              </span>
-              <span
-                className={`font-display text-[11px] font-500 tracking-widest uppercase transition-colors ${
-                  scrolled ? 'text-sky-600' : 'text-sky-200'
-                }`}
-                style={{ fontFamily: 'Sora, sans-serif', fontWeight: 500 }}
-              >
-                Direct
-              </span>
-            </div>
+            <img
+              src="https://res.cloudinary.com/dge6cqgom/image/upload/q_auto/f_auto/v1781817566/logo3-removebg-preview_azu55s.png"
+              alt="AirFiltersDirect"
+              className={`h-12 w-auto object-contain transition-all duration-300 ${
+                scrolled ? 'brightness-75' : 'brightness-100'
+              }`}
+            />
           </button>
 
           {/* Desktop nav links */}

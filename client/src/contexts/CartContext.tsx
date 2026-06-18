@@ -6,6 +6,7 @@ import { createContext, useContext, useState, useCallback, useEffect, ReactNode 
 import type { Product, FilterSize } from '@/lib/products';
 
 export const HST_RATE = 0.13; // 13% Ontario HST
+export const DELIVERY_CHARGE = 12.00; // $12 flat delivery fee
 const STORAGE_KEY = 'afd_cart_v1';
 
 export type CartItem = {
@@ -24,6 +25,7 @@ type CartContextType = {
   totalItems: number;
   subtotal: number;
   hst: number;
+  delivery: number;
   total: number;
   lastAdded: string | null;
 };
@@ -92,12 +94,13 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const totalItems = items.reduce((sum, i) => sum + i.quantity, 0);
   const subtotal = items.reduce((sum, i) => sum + i.size.price * i.quantity, 0);
   const hst = subtotal * HST_RATE;
-  const total = subtotal + hst;
+  const delivery = items.length > 0 ? DELIVERY_CHARGE : 0;
+  const total = subtotal + hst + delivery;
 
   return (
     <CartContext.Provider value={{
       items, addItem, removeItem, updateQuantity, clearCart,
-      totalItems, subtotal, hst, total, lastAdded,
+      totalItems, subtotal, hst, delivery, total, lastAdded,
     }}>
       {children}
     </CartContext.Provider>

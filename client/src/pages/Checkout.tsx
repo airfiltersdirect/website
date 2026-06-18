@@ -101,7 +101,7 @@ function StepBar({ step }: { step: number }) {
 // ─── Order mini-summary (sidebar) ─────────────────────────────────────────────
 
 function OrderSummary() {
-  const { items, subtotal, hst, total } = useCart();
+  const { items, subtotal, hst, delivery, total } = useCart();
   return (
     <div
       className="rounded-2xl p-5 border border-white/60 shadow-sm"
@@ -129,8 +129,12 @@ function OrderSummary() {
           <span className="text-slate-600">${subtotal.toFixed(2)}</span>
         </div>
         <div className="flex justify-between text-xs" style={{ fontFamily: 'DM Sans, sans-serif' }}>
-          <span className="text-slate-500">HST ({(HST_RATE * 100).toFixed(0)}%)</span>
+          <span className="text-slate-500">HST (13%)</span>
           <span className="text-slate-600">${hst.toFixed(2)}</span>
+        </div>
+        <div className="flex justify-between text-xs" style={{ fontFamily: 'DM Sans, sans-serif' }}>
+          <span className="text-slate-500">Delivery</span>
+          <span className="text-slate-600">${delivery.toFixed(2)}</span>
         </div>
         <div className="flex justify-between text-sm font-bold" style={{ fontFamily: 'Sora, sans-serif' }}>
           <span className="text-slate-800">Total</span>
@@ -348,7 +352,7 @@ function ConfirmStep({
   onSubmit: () => void;
   submitting: boolean;
 }) {
-  const { items, subtotal, hst, total } = useCart();
+  const { items, subtotal, hst, delivery, total } = useCart();
 
   return (
     <div>
@@ -637,7 +641,7 @@ function SuccessStep({
 
 export default function CheckoutPage() {
   const [, setLocation] = useLocation();
-  const { items, total, subtotal, hst, clearCart } = useCart();
+  const { items, total, subtotal, hst, delivery, clearCart } = useCart();
 
   const [step, setStep] = useState<1 | 2 | 3 | 4>(1);
   const [payment, setPayment] = useState<PaymentMethod | null>(null);
@@ -649,6 +653,7 @@ export default function CheckoutPage() {
   const [snapshotItems, setSnapshotItems] = useState(items);
   const [snapshotSubtotal, setSnapshotSubtotal] = useState(subtotal);
   const [snapshotHst, setSnapshotHst] = useState(hst);
+  const [snapshotDelivery, setSnapshotDelivery] = useState(delivery);
   const [snapshotTotal, setSnapshotTotal] = useState(total);
 
   // Redirect to cart if empty (but not on success screen)
@@ -691,6 +696,7 @@ export default function CheckoutPage() {
     setSnapshotItems(items);
     setSnapshotSubtotal(subtotal);
     setSnapshotHst(hst);
+    setSnapshotDelivery(delivery);
     setSnapshotTotal(total);
 
     // Fire email via backend SMTP2GO (non-blocking — don't fail the order if email fails)
@@ -713,6 +719,7 @@ export default function CheckoutPage() {
         })),
         subtotal,
         hst,
+        delivery,
         total,
       });
     } catch (err) {
@@ -722,7 +729,7 @@ export default function CheckoutPage() {
     clearCart();
     setStep(4);
     setSubmitting(false);
-  }, [orderId, items, form, payment, subtotal, hst, total, clearCart, sendEmailMutation]);
+  }, [orderId, items, form, payment, subtotal, hst, delivery, total, clearCart, sendEmailMutation]);
 
   return (
     <div className="min-h-screen" style={{ background: 'oklch(0.97 0.015 220)' }}>

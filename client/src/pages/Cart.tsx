@@ -8,7 +8,7 @@ import { useCart, HST_RATE } from '@/contexts/CartContext';
 
 export default function CartPage() {
   const [, setLocation] = useLocation();
-  const { items, removeItem, updateQuantity, subtotal, hst, total, totalItems } = useCart();
+  const { items, removeItem, updateQuantity, subtotal, hst, delivery, total, totalItems } = useCart();
 
   return (
     <div className="min-h-screen" style={{ background: 'oklch(0.97 0.015 220)' }}>
@@ -220,6 +220,10 @@ export default function CartPage() {
                     <span className="text-slate-500">HST ({(HST_RATE * 100).toFixed(0)}%)</span>
                     <span className="text-slate-700">${hst.toFixed(2)}</span>
                   </div>
+                  <div className="flex justify-between text-sm" style={{ fontFamily: 'DM Sans, sans-serif' }}>
+                    <span className="text-slate-500">Delivery</span>
+                    <span className="text-slate-700">${delivery.toFixed(2)}</span>
+                  </div>
                   <div className="border-t border-slate-200 pt-3 flex justify-between" style={{ fontFamily: 'Sora, sans-serif' }}>
                     <span className="font-bold text-slate-800">Total</span>
                     <span className="text-xl font-extrabold text-sky-700">${total.toFixed(2)}</span>
@@ -244,9 +248,7 @@ export default function CartPage() {
                   <ArrowRight className="w-4 h-4" />
                 </button>
 
-                <p className="text-center text-xs text-slate-400 mt-3" style={{ fontFamily: 'DM Sans, sans-serif' }}>
-                  Free delivery on orders over $49
-                </p>
+
               </div>
             </div>
           </div>

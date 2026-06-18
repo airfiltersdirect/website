@@ -19,22 +19,12 @@ export default function Footer() {
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10 mb-12">
 
           {/* Brand */}
-          <div className="flex items-center gap-3 flex-shrink-0">
-            <div className="w-10 h-10 rounded-xl overflow-hidden bg-white/10 border border-white/20 flex items-center justify-center">
-              <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663421227709/nTdPSsPiYf7V5UxctJCgYg/logo-icon-VkFxunwtpnvsr5EpVnQV6E.webp"
-                alt="AirFiltersDirect"
-                className="w-8 h-8 object-contain"
-              />
-            </div>
-            <div>
-              <p className="font-bold text-white text-base" style={{ fontFamily: 'Sora, sans-serif' }}>
-                AirFiltersDirect
-              </p>
-              <p className="text-xs text-sky-400 tracking-wide" style={{ fontFamily: 'DM Sans, sans-serif' }}>
-                Breathe Better. Filter Smarter.
-              </p>
-            </div>
+          <div className="flex items-center flex-shrink-0">
+            <img
+              src="https://res.cloudinary.com/dge6cqgom/image/upload/q_auto/f_auto/v1781817566/logo3-removebg-preview_azu55s.png"
+              alt="AirFiltersDirect"
+              className="h-10 w-auto object-contain brightness-0 invert"
+            />
           </div>
 
           {/* Tagline */}
@@ -83,10 +73,10 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-slate-500" style={{ fontFamily: 'DM Sans, sans-serif' }}>
-            © 2026 AirFiltersDirect. All rights reserved. Canadian-owned &amp; operated.
+            © 2025 AirFiltersDirect. All rights reserved. Canadian-owned &amp; operated.
           </p>
           <div className="flex items-center gap-4">
-            {['Privacy Policy', 'Terms of Service'].map(link => (
+            {['Privacy Policy', 'Terms of Service', 'Shipping Policy'].map(link => (
               <button
                 key={link}
                 className="text-xs text-slate-500 hover:text-sky-400 transition-colors"

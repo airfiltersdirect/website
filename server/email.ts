@@ -39,6 +39,7 @@ export interface OrderEmailPayload {
   }>;
   subtotal: number;
   hst: number;
+  delivery: number;
   total: number;
 }
 
@@ -70,6 +71,10 @@ function buildTotalsBlock(data: OrderEmailPayload): string {
       <tr>
         <td style="padding:6px 0;font-size:13px;color:#64748b;">HST (13%)</td>
         <td style="padding:6px 0;font-size:13px;color:#64748b;text-align:right;">$${data.hst.toFixed(2)}</td>
+      </tr>
+      <tr>
+        <td style="padding:6px 0;font-size:13px;color:#64748b;">Delivery</td>
+        <td style="padding:6px 0;font-size:13px;color:#64748b;text-align:right;">$${data.delivery.toFixed(2)}</td>
       </tr>
       <tr>
         <td style="padding:10px 0 0;font-size:16px;font-weight:800;color:#1e293b;border-top:2px solid #e2e8f0;">Total Due</td>
